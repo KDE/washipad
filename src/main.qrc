@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ColorButton.qml</file>
+        <file>Page.qml</file>
+        <file>PageMarker.qml</file>
+        <file>Sketch.qml</file>
+        <file>ToolBar.qml</file>
+        <file>ToolButton.qml</file>
+    </qresource>
+</RCC>
