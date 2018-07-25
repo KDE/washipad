@@ -9,6 +9,7 @@ find_package(Qt5 REQUIRED Quick Svg Widgets Test)
 include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
+include(ECMInstallIcons)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
