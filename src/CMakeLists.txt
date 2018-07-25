@@ -1,3 +1,5 @@
+add_subdirectory(icons)
+
 set(lib_SRCS
     pressureequation.cpp
     sketchmodel.cpp

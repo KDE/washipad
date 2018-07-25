@@ -3,5 +3,5 @@ Type=Application
 Categories=Qt;KDE;Graphics;VectorGraphics
 Exec=washipad
 Name=WashiPad
-Icon=image-svg+xml
+Icon=washipad
 GenericName=Minimalist Sketchnoting Application
