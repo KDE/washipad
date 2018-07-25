@@ -29,3 +29,5 @@ add_executable(washipad ${exec_SRCS})
 target_link_libraries(washipad washipadlib)
 
 install(TARGETS washipad DESTINATION ${KDE_INSTALL_BINDIR})
+install(PROGRAMS org.kde.washipad.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.washipad.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
