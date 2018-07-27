@@ -63,10 +63,11 @@ Row {
     ToolButton {
         onClicked: root.saveRequested()
 
-        Text {
-            anchors.centerIn: parent
-            text: "Save"
-            font.pixelSize: parent.height * 0.25
+        Image {
+            anchors.fill: parent
+            source: "qrc:/document-save.svg"
+            fillMode: Image.PreserveAspectFit
+            sourceSize: Qt.size(width, height)
         }
     }
 
@@ -74,10 +75,11 @@ Row {
         color: "darkRed"
         onClicked: Qt.quit()
 
-        Text {
-            anchors.centerIn: parent
-            text: "X"
-            font.pixelSize: parent.height * 0.5
+        Image {
+            anchors.fill: parent
+            source: "qrc:/window-close.svg"
+            fillMode: Image.PreserveAspectFit
+            sourceSize: Qt.size(width, height)
         }
     }
 }

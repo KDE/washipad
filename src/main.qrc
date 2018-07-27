@@ -7,5 +7,7 @@
         <file>Sketch.qml</file>
         <file>ToolBar.qml</file>
         <file>ToolButton.qml</file>
+        <file>document-save.svg</file>
+        <file>window-close.svg</file>
     </qresource>
 </RCC>
