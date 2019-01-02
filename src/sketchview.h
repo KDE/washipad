@@ -67,6 +67,10 @@ public:
 
 signals:
     void tabletEventReceived(QTabletEvent *event);
+
+private:
+    QPointF m_lastGlobalPos;
+    QEvent::Type m_lastType = QEvent::None;
 };
 
 #endif // SKETCHVIEW_H

@@ -85,6 +85,17 @@ SketchView::SketchView(QWindow *parent)
 
 void SketchView::tabletEvent(QTabletEvent *event)
 {
-    emit tabletEventReceived(event);
     event->accept();
+
+    if (m_lastType == event->type()) {
+        const auto length = (event->globalPosF() - m_lastGlobalPos).manhattanLength();
+        constexpr auto lengthThreshold =  4.0_r;
+
+        if (length < lengthThreshold)
+            return;
+    }
+
+    m_lastType = event->type();
+    m_lastGlobalPos = event->globalPos();
+    emit tabletEventReceived(event);
 }
