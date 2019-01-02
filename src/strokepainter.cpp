@@ -38,16 +38,16 @@ void StrokePainter::render(const Stroke &stroke, QPainter *painter)
     auto lastSample = *it;
     ++it;
 
-    auto forwardPoints = QVector<QPointF>{};
-    auto backwardPoints = QVector<QPointF>{};
+    auto forwardPoints = QVector<QVector2D>{};
+    auto backwardPoints = QVector<QVector2D>{};
 
     while (it != std::cend(samples)) {
         const auto currentSample = *it;
 
-        const auto penWidth = static_cast<float>(currentSample.width);
+        const auto penWidth = currentSample.width;
 
-        const auto currentPos = QVector2D(currentSample.position);
-        const auto lastPos = QVector2D(lastSample.position);
+        const auto currentPos = currentSample.position;
+        const auto lastPos = lastSample.position;
 
         const auto direction = currentPos - lastPos;
         const auto ortho = QVector2D(direction.y(), -direction.x()).normalized();
@@ -57,20 +57,23 @@ void StrokePainter::render(const Stroke &stroke, QPainter *painter)
         const auto p3 = (currentPos - penWidth * ortho / 2.0f);
         const auto p4 = (currentPos + penWidth * ortho / 2.0f);
 
-        forwardPoints << p1.toPointF() << p3.toPointF();
-        backwardPoints << p2.toPointF() << p4.toPointF();
+        forwardPoints << p1 << p3;
+        backwardPoints << p2 << p4;
 
         lastSample = currentSample;
         ++it;
     }
 
     auto path = QPainterPath();
-    path.moveTo(forwardPoints[0]);
+    path.moveTo(static_cast<qreal>(forwardPoints[0].x()),
+                static_cast<qreal>(forwardPoints[0].y()));
     for (auto it = forwardPoints.cbegin() + 1; it != forwardPoints.cend(); ++it) {
-        path.lineTo(*it);
+        path.lineTo(static_cast<qreal>(it->x()),
+                    static_cast<qreal>(it->y()));
     }
     for (auto it = backwardPoints.crbegin(); it != backwardPoints.crend(); ++it) {
-        path.lineTo(*it);
+        path.lineTo(static_cast<qreal>(it->x()),
+                    static_cast<qreal>(it->y()));
     }
     path.closeSubpath();
     path.setFillRule(Qt::WindingFill);

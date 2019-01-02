@@ -31,41 +31,41 @@
 class PressureEquation : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(qreal minWidth READ minWidth WRITE setMinWidth NOTIFY minWidthChanged)
-    Q_PROPERTY(qreal maxWidth READ maxWidth WRITE setMaxWidth NOTIFY maxWidthChanged)
+    Q_PROPERTY(float minWidth READ minWidth WRITE setMinWidth NOTIFY minWidthChanged)
+    Q_PROPERTY(float maxWidth READ maxWidth WRITE setMaxWidth NOTIFY maxWidthChanged)
 
-    Q_PROPERTY(qreal pressure READ pressure WRITE setPressure NOTIFY pressureChanged)
-    Q_PROPERTY(qreal width READ width NOTIFY widthChanged)
+    Q_PROPERTY(float pressure READ pressure WRITE setPressure NOTIFY pressureChanged)
+    Q_PROPERTY(float width READ width NOTIFY widthChanged)
 public:
     using QObject::QObject;
 
-    qreal minWidth() const;
-    qreal maxWidth() const;
+    float minWidth() const;
+    float maxWidth() const;
 
-    qreal pressure() const;
-    qreal width() const;
+    float pressure() const;
+    float width() const;
 
 public slots:
-    void setMinWidth(qreal minWidth);
-    void setMaxWidth(qreal maxWidth);
+    void setMinWidth(float minWidth);
+    void setMaxWidth(float maxWidth);
 
-    void setPressure(qreal pressure);
+    void setPressure(float pressure);
 
 signals:
-    void minWidthChanged(qreal minWidth);
-    void maxWidthChanged(qreal maxWidth);
+    void minWidthChanged(float minWidth);
+    void maxWidthChanged(float maxWidth);
 
-    void pressureChanged(qreal pressure);
-    void widthChanged(qreal width);
+    void pressureChanged(float pressure);
+    void widthChanged(float width);
 
 private:
     void updateWidth();
 
-    qreal m_minWidth = 1.0_r;
-    qreal m_maxWidth = 1.0_r;
+    float m_minWidth = 1.0f;
+    float m_maxWidth = 1.0f;
 
-    qreal m_pressure = 0.0_r;
-    qreal m_width = m_maxWidth;
+    float m_pressure = 0.0f;
+    float m_width = m_maxWidth;
 };
 
 #endif // PRESSUREEQUATION_H

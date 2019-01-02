@@ -44,7 +44,7 @@ private slots:
 
         // THEN
         QVERIFY(sample.position.isNull());
-        QCOMPARE(sample.width, 1.0_r);
+        QCOMPARE(sample.width, 1.0f);
     }
 
     void shouldHaveType()
@@ -77,7 +77,7 @@ private slots:
         auto stroke = Stroke{};
 
         // WHEN
-        const auto sample = StrokeSample{{0.5_r, 0.5_r}, 0.1_r};
+        const auto sample = StrokeSample{{0.5f, 0.5f}, 0.1f};
         stroke.addSample(sample);
 
         // THEN
@@ -86,8 +86,8 @@ private slots:
 
         // WHEN
         const auto samples = QVector<StrokeSample>{
-            {{1.0_r, 1.5_r}, 0.2_r},
-            {{1.1_r, 1.75_r}, 0.4_r}
+            {{1.0f, 1.5f}, 0.2f},
+            {{1.1f, 1.75f}, 0.4f}
         };
         stroke.addSamples(samples);
 
@@ -101,71 +101,71 @@ private slots:
     void shouldEraseAreas_data()
     {
         QTest::addColumn<Stroke>("input");
-        QTest::addColumn<QPointF>("center");
-        QTest::addColumn<qreal>("radius");
+        QTest::addColumn<QVector2D>("center");
+        QTest::addColumn<float>("radius");
         QTest::addColumn<QVector<QVector<StrokeSample>>>("expectedSamples");
 
         const auto straightLine = [] {
             auto stroke = Stroke{};
             stroke.setType(Stroke::Type::Fill);
             stroke.setColor(Qt::blue);
-            stroke.addSample({{0.0_r, 0.0_r}, 0.5_r});
-            stroke.addSample({{0.125_r, 0.125_r}, 0.5_r});
-            stroke.addSample({{0.25_r, 0.25_r}, 0.5_r});
-            stroke.addSample({{0.375_r, 0.375_r}, 0.5_r});
-            stroke.addSample({{0.5_r, 0.5_r}, 0.5_r});
-            stroke.addSample({{0.625_r, 0.625_r}, 0.5_r});
-            stroke.addSample({{0.75_r, 0.75_r}, 0.5_r});
-            stroke.addSample({{0.875_r, 0.875_r}, 0.5_r});
-            stroke.addSample({{1.0_r, 1.0_r}, 0.5_r});
+            stroke.addSample({{0.0f, 0.0f}, 0.5f});
+            stroke.addSample({{0.125f, 0.125f}, 0.5f});
+            stroke.addSample({{0.25f, 0.25f}, 0.5f});
+            stroke.addSample({{0.375f, 0.375f}, 0.5f});
+            stroke.addSample({{0.5f, 0.5f}, 0.5f});
+            stroke.addSample({{0.625f, 0.625f}, 0.5f});
+            stroke.addSample({{0.75f, 0.75f}, 0.5f});
+            stroke.addSample({{0.875f, 0.875f}, 0.5f});
+            stroke.addSample({{1.0f, 1.0f}, 0.5f});
             return stroke;
         }();
 
         QTest::newRow("straight line, no hit")
                 << straightLine
-                << QPointF{-1.0_r, -1.0_r} << 0.5_r
+                << QVector2D{-1.0f, -1.0f} << 0.5f
                 << QVector<QVector<StrokeSample>>{straightLine.samples()};
 
         QTest::newRow("straight line, all hits")
                 << straightLine
-                << QPointF{0.5_r, 0.5_r} << 1.5_r
+                << QVector2D{0.5f, 0.5f} << 1.5f
                 << QVector<QVector<StrokeSample>>{};
 
         QTest::newRow("straight line, begin hits with isolated sample")
                 << straightLine
-                << QPointF{0.1875_r, 0.1875_r} << 0.125_r
+                << QVector2D{0.1875f, 0.1875f} << 0.125f
                 << QVector<QVector<StrokeSample>>{
-                       {{{0.375_r, 0.375_r}, 0.5_r}, {{0.5_r, 0.5_r}, 0.5_r},
-                        {{0.625_r, 0.625_r}, 0.5_r}, {{0.75_r, 0.75_r}, 0.5_r},
-                        {{0.875_r, 0.875_r}, 0.5_r}, {{1.0_r, 1.0_r}, 0.5_r}}
+                       {{{0.375f, 0.375f}, 0.5f}, {{0.5f, 0.5f}, 0.5f},
+                        {{0.625f, 0.625f}, 0.5f}, {{0.75f, 0.75f}, 0.5f},
+                        {{0.875f, 0.875f}, 0.5f}, {{1.0f, 1.0f}, 0.5f}}
                    };
 
         QTest::newRow("straight line, begin hits")
                 << straightLine
-                << QPointF{0.0_r, 0.0_r} << 0.25_r
+                << QVector2D{0.0f, 0.0f} << 0.25f
                 << QVector<QVector<StrokeSample>>{
-                       {{{0.25_r, 0.25_r}, 0.5_r}, {{0.375_r, 0.375_r}, 0.5_r},
-                        {{0.5_r, 0.5_r}, 0.5_r}, {{0.625_r, 0.625_r}, 0.5_r},
-                        {{0.75_r, 0.75_r}, 0.5_r}, {{0.875_r, 0.875_r}, 0.5_r},
-                        {{1.0_r, 1.0_r}, 0.5_r}}
+                       {{{0.25f, 0.25f}, 0.5f}, {{0.375f, 0.375f}, 0.5f},
+                        {{0.5f, 0.5f}, 0.5f}, {{0.625f, 0.625f}, 0.5f},
+                        {{0.75f, 0.75f}, 0.5f}, {{0.875f, 0.875f}, 0.5f},
+                        {{1.0f, 1.0f}, 0.5f}}
                    };
 
         QTest::newRow("straight line, middle hits")
                 << straightLine
-                << QPointF{0.375_r, 0.375_r} << 0.2_r
+                << QVector2D{0.375f, 0.375f} << 0.2f
                 << QVector<QVector<StrokeSample>>{
-                       {{{0.0_r, 0.0_r}, 0.5_r}, {{0.125_r, 0.125_r}, 0.5_r}},
-                       {{{0.625_r, 0.625_r}, 0.5_r}, {{0.75_r, 0.75_r}, 0.5_r}, {{0.875_r, 0.875_r}, 0.5_r}, {{1.0_r, 1.0_r}, 0.5_r}}
+                       {{{0.0f, 0.0f}, 0.5f}, {{0.125f, 0.125f}, 0.5f}},
+                       {{{0.625f, 0.625f}, 0.5f}, {{0.75f, 0.75f}, 0.5f}, {{0.875f, 0.875f}, 0.5f}, {{1.0f, 1.0f}, 0.5f}}
                    };
 
         QTest::newRow("straight line, end hits")
                 << straightLine
-                << QPointF{1.0_r, 1.0_r} << 0.25_r
+                << QVector2D{1.0f, 1.0f} << 0.25f
                 << QVector<QVector<StrokeSample>>{
-                       {{{0.0_r, 0.0_r}, 0.5_r}, {{0.125_r, 0.125_r}, 0.5_r},
-                        {{0.25_r, 0.25_r}, 0.5_r}, {{0.375_r, 0.375_r}, 0.5_r},
-                        {{0.5_r, 0.5_r}, 0.5_r}, {{0.625_r, 0.625_r}, 0.5_r},
-                        {{0.75_r, 0.75_r}, 0.5_r}}
+                       {{{0.0f, 0.0f}, 0.5f}, {{0.125f, 0.125f}, 0.5f},
+                        {{0.25f, 0.25f}, 0.5f}, {{0.375f, 0.375f}, 0.5f},
+                        {{0.5f, 0.5f}, 0.5f}, {{0.625f, 0.625f}, 0.5f},
+                        {{0.75f, 0.75f}, 0.5f}}
                    };
 
 
@@ -173,26 +173,26 @@ private slots:
             auto stroke = Stroke{};
             stroke.setType(Stroke::Type::Outline);
             stroke.setColor(Qt::red);
-            stroke.addSample({{0.0_r, 0.0_r}, 0.5_r});
-            stroke.addSample({{0.125_r, 0.125_r}, 0.5_r});
-            stroke.addSample({{0.25_r, 0.25_r}, 0.5_r});
-            stroke.addSample({{0.375_r, 0.25_r}, 0.5_r});
-            stroke.addSample({{0.5_r, 0.125_r}, 0.5_r});
-            stroke.addSample({{0.625_r, 0.125_r}, 0.5_r});
-            stroke.addSample({{0.75_r, 0.25_r}, 0.5_r});
-            stroke.addSample({{0.875_r, 0.375_r}, 0.5_r});
-            stroke.addSample({{1.0_r, 0.25_r}, 0.5_r});
-            stroke.addSample({{1.125_r, 0.125_r}, 0.5_r});
+            stroke.addSample({{0.0f, 0.0f}, 0.5f});
+            stroke.addSample({{0.125f, 0.125f}, 0.5f});
+            stroke.addSample({{0.25f, 0.25f}, 0.5f});
+            stroke.addSample({{0.375f, 0.25f}, 0.5f});
+            stroke.addSample({{0.5f, 0.125f}, 0.5f});
+            stroke.addSample({{0.625f, 0.125f}, 0.5f});
+            stroke.addSample({{0.75f, 0.25f}, 0.5f});
+            stroke.addSample({{0.875f, 0.375f}, 0.5f});
+            stroke.addSample({{1.0f, 0.25f}, 0.5f});
+            stroke.addSample({{1.125f, 0.125f}, 0.5f});
             return stroke;
         }();
 
         QTest::newRow("complex line, multiple hits")
                 << complexLine
-                << QPointF{0.5625_r, 0.4375_r} << 0.27_r
+                << QVector2D{0.5625f, 0.4375f} << 0.27f
                 << QVector<QVector<StrokeSample>>{
-                       {{{0.0_r, 0.0_r}, 0.5_r}, {{0.125_r, 0.125_r}, 0.5_r}, {{0.25_r, 0.25_r}, 0.5_r}},
-                       {{{0.5_r, 0.125_r}, 0.5_r}, {{0.625_r, 0.125_r}, 0.5_r}},
-                       {{{0.875_r, 0.375_r}, 0.5_r}, {{1.0_r, 0.25_r}, 0.5_r}, {{1.125_r, 0.125_r}, 0.5_r}}
+                       {{{0.0f, 0.0f}, 0.5f}, {{0.125f, 0.125f}, 0.5f}, {{0.25f, 0.25f}, 0.5f}},
+                       {{{0.5f, 0.125f}, 0.5f}, {{0.625f, 0.125f}, 0.5f}},
+                       {{{0.875f, 0.375f}, 0.5f}, {{1.0f, 0.25f}, 0.5f}, {{1.125f, 0.125f}, 0.5f}}
                    };
     }
 
@@ -202,8 +202,8 @@ private slots:
         QFETCH(Stroke, input);
 
         // WHEN
-        QFETCH(QPointF, center);
-        QFETCH(qreal, radius);
+        QFETCH(QVector2D, center);
+        QFETCH(float, radius);
         const auto output = input.eraseArea(center, radius);
 
         // THEN
@@ -220,18 +220,18 @@ private slots:
     {
         // GIVEN
         auto stroke = Stroke{};
-        stroke.addSample({{0.5_r, 0.5_r}, 1.0_r});
-        stroke.addSample({{5.0_r, -0.5_r}, 1.0_r});
-        stroke.addSample({{-5.0_r, 0.5_r}, 1.0_r});
-        stroke.addSample({{0.25_r, 1.5_r}, 1.0_r});
-        stroke.addSample({{0.25_r, 5.0_r}, 1.0_r});
-        stroke.addSample({{0.25_r, -5.0_r}, 1.0_r});
+        stroke.addSample({{0.5f, 0.5f}, 1.0f});
+        stroke.addSample({{5.0f, -0.5f}, 1.0f});
+        stroke.addSample({{-5.0f, 0.5f}, 1.0f});
+        stroke.addSample({{0.25f, 1.5f}, 1.0f});
+        stroke.addSample({{0.25f, 5.0f}, 1.0f});
+        stroke.addSample({{0.25f, -5.0f}, 1.0f});
 
         // WHEN
         const auto rect = stroke.boundingRect();
 
         // THEN
-        const auto expected = QRectF{QPointF{-5.0_r, -5.0_r}, QPointF{5.0_r, 5.0_r}};
+        const auto expected = QRectF{QPointF{-5.0, -5.0}, QPointF{5.0, 5.0}};
         QCOMPARE(rect, expected);
     }
 };

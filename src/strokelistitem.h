@@ -42,7 +42,7 @@ public:
     explicit StrokeListItem(QQuickItem *parent = nullptr);
 
     Q_INVOKABLE void addStroke(const Stroke &stroke);
-    Q_INVOKABLE void eraseArea(const QPointF &center, qreal radius);
+    Q_INVOKABLE void eraseArea(const QVector2D &center, float radius);
 
     void paint(QPainter *painter) override;
 

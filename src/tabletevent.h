@@ -31,9 +31,9 @@ class QTabletEvent;
 class TabletEvent
 {
     Q_GADGET
-    Q_PROPERTY(qreal x MEMBER x)
-    Q_PROPERTY(qreal y MEMBER y)
-    Q_PROPERTY(qreal pressure MEMBER pressure)
+    Q_PROPERTY(float x MEMBER x)
+    Q_PROPERTY(float y MEMBER y)
+    Q_PROPERTY(float pressure MEMBER pressure)
     Q_PROPERTY(Pointer pointer MEMBER pointer)
 public:
     enum class Pointer
@@ -45,9 +45,9 @@ public:
 
     static TabletEvent create(QTabletEvent *event);
 
-    qreal x = 0.0_r;
-    qreal y = 0.0_r;
-    qreal pressure = 0.0_r;
+    float x = 0.0f;
+    float y = 0.0f;
+    float pressure = 0.0f;
     Pointer pointer = Pointer::Pen;
 };
 

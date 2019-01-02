@@ -86,8 +86,8 @@ Item {
         }
 
         function createPoint() {
-            return Qt.point(point.x + flickable.contentX,
-                            point.y + flickable.contentY)
+            return Qt.vector2d(point.x + flickable.contentX,
+                               point.y + flickable.contentY)
         }
 
         function addSample() {

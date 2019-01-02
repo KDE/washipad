@@ -26,20 +26,18 @@
 
 #include <QColor>
 #include <QObject>
-#include <QPointF>
 #include <QRectF>
 #include <QVector>
-
-qreal operator ""_r(long double value);
+#include <QVector2D>
 
 class StrokeSample
 {
     Q_GADGET
-    Q_PROPERTY(QPointF position MEMBER position)
-    Q_PROPERTY(qreal width MEMBER width)
+    Q_PROPERTY(QVector2D position MEMBER position)
+    Q_PROPERTY(float width MEMBER width)
 public:
-    QPointF position;
-    qreal width = 1.0_r;
+    QVector2D position;
+    float width = 1.0f;
 
     bool operator==(const StrokeSample &other) const;
 };
@@ -67,7 +65,7 @@ public:
     Q_INVOKABLE void addSample(const StrokeSample &sample);
     void addSamples(const QVector<StrokeSample> &samples);
 
-    QVector<Stroke> eraseArea(const QPointF &center, qreal radius);
+    QVector<Stroke> eraseArea(const QVector2D &center, float radius);
 
     Q_INVOKABLE QRectF boundingRect() const;
 

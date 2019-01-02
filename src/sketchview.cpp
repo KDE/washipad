@@ -40,7 +40,7 @@ Stroke SketchViewHandler::createStroke(Stroke::Type type, const QColor &color) c
     return result;
 }
 
-StrokeSample SketchViewHandler::createSample(const QPointF &position, qreal width) const
+StrokeSample SketchViewHandler::createSample(const QVector2D &position, float width) const
 {
     return {position, width};
 }
@@ -88,8 +88,8 @@ void SketchView::tabletEvent(QTabletEvent *event)
     event->accept();
 
     if (m_lastType == event->type()) {
-        const auto length = (event->globalPosF() - m_lastGlobalPos).manhattanLength();
-        constexpr auto lengthThreshold =  4.0_r;
+        const auto length = (event->globalPos() - m_lastGlobalPos).manhattanLength();
+        constexpr auto lengthThreshold =  4.0;
 
         if (length < lengthThreshold)
             return;

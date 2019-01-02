@@ -25,11 +25,6 @@
 
 #include <QVector2D>
 
-qreal operator ""_r(long double value)
-{
-    return static_cast<qreal>(value);
-}
-
 bool StrokeSample::operator==(const StrokeSample &other) const
 {
     return position == other.position
@@ -73,10 +68,10 @@ void Stroke::addSamples(const QVector<StrokeSample> &samples)
     m_boundingRectCache = QRectF{};
 }
 
-QVector<Stroke> Stroke::eraseArea(const QPointF &center, qreal radius)
+QVector<Stroke> Stroke::eraseArea(const QVector2D &center, float radius)
 {
-    const auto areaBoundingRect = QRectF{center - QPointF{radius, radius},
-                                         center + QPointF{radius, radius}};
+    const auto areaBoundingRect = QRectF{(center - QVector2D{radius, radius}).toPointF(),
+                                         (center + QVector2D{radius, radius}).toPointF()};
     auto result = QVector<Stroke>{};
 
     // For sure won't get any hits
@@ -86,7 +81,7 @@ QVector<Stroke> Stroke::eraseArea(const QPointF &center, qreal radius)
     }
 
     const auto isHit = [=](const StrokeSample &sample) {
-        return QVector2D{sample.position - center}.length() <= static_cast<float>(radius);
+        return QVector2D{sample.position - center}.length() <= radius;
     };
 
     auto it = std::cbegin(m_samples);
@@ -118,10 +113,10 @@ QVector<Stroke> Stroke::eraseArea(const QPointF &center, qreal radius)
 QRectF Stroke::boundingRect() const
 {
     if (!m_boundingRectCache.isValid()) {
-        auto minX = 0.0_r;
-        auto minY = 0.0_r;
-        auto maxX = 0.0_r;
-        auto maxY = 0.0_r;
+        auto minX = 0.0f;
+        auto minY = 0.0f;
+        auto maxX = 0.0f;
+        auto maxY = 0.0f;
 
         for (const auto &sample : qAsConst(m_samples)) {
             const auto position = sample.position;
@@ -136,7 +131,8 @@ QRectF Stroke::boundingRect() const
                 maxY = position.y();
         }
 
-        m_boundingRectCache = {QPointF{minX, minY}, QPointF{maxX, maxY}};
+        m_boundingRectCache = {QPointF{static_cast<qreal>(minX), static_cast<qreal>(minY)},
+                               QPointF{static_cast<qreal>(maxX), static_cast<qreal>(maxY)}};
     }
 
     return m_boundingRectCache;

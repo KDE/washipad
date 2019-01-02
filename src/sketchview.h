@@ -37,7 +37,7 @@ public:
     explicit SketchViewHandler(QObject *parent = nullptr);
 
     Q_INVOKABLE Stroke createStroke(Stroke::Type type, const QColor &color) const;
-    Q_INVOKABLE StrokeSample createSample(const QPointF &position, qreal width) const;
+    Q_INVOKABLE StrokeSample createSample(const QVector2D &position, float width) const;
 
     TabletEvent point() const;
     bool isPressed() const;
@@ -69,7 +69,7 @@ signals:
     void tabletEventReceived(QTabletEvent *event);
 
 private:
-    QPointF m_lastGlobalPos;
+    QPoint m_lastGlobalPos;
     QEvent::Type m_lastType = QEvent::None;
 };
 

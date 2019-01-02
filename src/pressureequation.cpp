@@ -27,40 +27,40 @@
 #include <QDebug>
 
 namespace {
-    qreal sigmoid(qreal x)
+    float sigmoid(float x)
     {
-        const auto lambda = 5.0_r;
-        return 1.0_r / (1.0_r + std::exp(-lambda * x));
+        const auto lambda = 5.0f;
+        return 1.0f / (1.0f + std::exp(-lambda * x));
     }
 
-    qreal computeWidth(qreal minWidth, qreal maxWidth, qreal pressure)
+    float computeWidth(float minWidth, float maxWidth, float pressure)
     {
-        const auto alpha = sigmoid(2.0_r * pressure - 1.0_r);
-        return (1.0_r - alpha) * minWidth + alpha * maxWidth;
+        const auto alpha = sigmoid(2.0f * pressure - 1.0f);
+        return (1.0f - alpha) * minWidth + alpha * maxWidth;
     }
 }
 
-qreal PressureEquation::minWidth() const
+float PressureEquation::minWidth() const
 {
     return m_minWidth;
 }
 
-qreal PressureEquation::maxWidth() const
+float PressureEquation::maxWidth() const
 {
     return m_maxWidth;
 }
 
-qreal PressureEquation::pressure() const
+float PressureEquation::pressure() const
 {
     return m_pressure;
 }
 
-qreal PressureEquation::width() const
+float PressureEquation::width() const
 {
     return m_width;
 }
 
-void PressureEquation::setMinWidth(qreal minWidth)
+void PressureEquation::setMinWidth(float minWidth)
 {
     if (qFuzzyCompare(m_minWidth, minWidth))
         return;
@@ -70,7 +70,7 @@ void PressureEquation::setMinWidth(qreal minWidth)
     updateWidth();
 }
 
-void PressureEquation::setMaxWidth(qreal maxWidth)
+void PressureEquation::setMaxWidth(float maxWidth)
 {
     if (qFuzzyCompare(m_maxWidth, maxWidth))
         return;
@@ -80,7 +80,7 @@ void PressureEquation::setMaxWidth(qreal maxWidth)
     updateWidth();
 }
 
-void PressureEquation::setPressure(qreal pressure)
+void PressureEquation::setPressure(float pressure)
 {
     if (qFuzzyCompare(m_pressure, pressure))
         return;

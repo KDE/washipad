@@ -39,7 +39,7 @@ public:
     QVector<Stroke> strokes(Stroke::Type type) const;
     QVector<Stroke> strokes() const;
 
-    void eraseArea(Stroke::Type type, const QPointF &center, qreal radius);
+    void eraseArea(Stroke::Type type, const QVector2D &center, float radius);
 
 private:
     const QVector<Stroke> &strokesRef(Stroke::Type type) const;

@@ -28,9 +28,9 @@
 TabletEvent TabletEvent::create(QTabletEvent *event)
 {
     return {
-        event->posF().x(),
-        event->posF().y(),
-        event->pressure(),
+        static_cast<float>(event->posF().x()),
+        static_cast<float>(event->posF().y()),
+        static_cast<float>(event->pressure()),
         (event->pointerType() == QTabletEvent::Eraser) ? Pointer::Eraser : Pointer::Pen
     };
 }

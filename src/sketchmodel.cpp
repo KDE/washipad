@@ -38,7 +38,7 @@ QVector<Stroke> SketchModel::strokes() const
     return m_fillStrokes + m_outlineStrokes;
 }
 
-void SketchModel::eraseArea(Stroke::Type type, const QPointF &center, qreal radius)
+void SketchModel::eraseArea(Stroke::Type type, const QVector2D &center, float radius)
 {
     auto &strokes = strokesRef(type);
 

@@ -43,7 +43,7 @@ void StrokeListItem::addStroke(const Stroke &stroke)
     update();
 }
 
-void StrokeListItem::eraseArea(const QPointF &center, qreal radius)
+void StrokeListItem::eraseArea(const QVector2D &center, float radius)
 {
     Q_ASSERT(m_model);
     m_model->eraseArea(m_type, center, radius);
