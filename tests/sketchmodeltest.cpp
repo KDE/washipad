@@ -23,6 +23,8 @@
 
 #include <QtTest>
 
+#include <memory>
+
 #include "sketchmodel.h"
 
 class SketchModelTest : public QObject
