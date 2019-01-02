@@ -24,20 +24,9 @@
 #include "strokepainter.h"
 
 #include <QPainter>
+#include <QVector2D>
 
 #include "stroke.h"
-
-namespace
-{
-    QPen createPen(const Stroke &stroke, const StrokeSample &sample)
-    {
-        return QPen(stroke.color(),
-                    sample.width,
-                    Qt::SolidLine,
-                    Qt::RoundCap,
-                    Qt::RoundJoin);
-    }
-}
 
 void StrokePainter::render(const Stroke &stroke, QPainter *painter)
 {
@@ -47,15 +36,46 @@ void StrokePainter::render(const Stroke &stroke, QPainter *painter)
 
     auto it = std::cbegin(samples);
     auto lastSample = *it;
-    it++;
+    ++it;
+
+    auto forwardPoints = QVector<QPointF>{};
+    auto backwardPoints = QVector<QPointF>{};
 
     while (it != std::cend(samples)) {
         const auto currentSample = *it;
 
-        painter->setPen(createPen(stroke, currentSample));
-        painter->drawLine(lastSample.position, currentSample.position);
+        const auto penWidth = static_cast<float>(currentSample.width);
+
+        const auto currentPos = QVector2D(currentSample.position);
+        const auto lastPos = QVector2D(lastSample.position);
+
+        const auto direction = currentPos - lastPos;
+        const auto ortho = QVector2D(direction.y(), -direction.x()).normalized();
+
+        const auto p1 = (lastPos - penWidth * ortho / 2.0f);
+        const auto p2 = (lastPos + penWidth * ortho / 2.0f);
+        const auto p3 = (currentPos - penWidth * ortho / 2.0f);
+        const auto p4 = (currentPos + penWidth * ortho / 2.0f);
+
+        forwardPoints << p1.toPointF() << p3.toPointF();
+        backwardPoints << p2.toPointF() << p4.toPointF();
 
         lastSample = currentSample;
-        it++;
+        ++it;
     }
+
+    auto path = QPainterPath();
+    path.moveTo(forwardPoints[0]);
+    for (auto it = forwardPoints.cbegin() + 1; it != forwardPoints.cend(); ++it) {
+        path.lineTo(*it);
+    }
+    for (auto it = backwardPoints.crbegin(); it != backwardPoints.crend(); ++it) {
+        path.lineTo(*it);
+    }
+    path.closeSubpath();
+    path.setFillRule(Qt::WindingFill);
+
+    painter->setPen(Qt::NoPen);
+    painter->setBrush(stroke.color());
+    painter->drawPath(path);
 }
