@@ -56,10 +56,10 @@ Rectangle {
 
     FileDialog {
          id: saveDialog
-         title: "Save as SVG"
+         title: "Save as..."
          folder: shortcuts.home
          selectExisting: false
-         nameFilters: [ "SVG Files (*.svg)" ]
+         nameFilters: [ "SVG Image (*.svg)", "PNG Image (*.png)" ]
          onAccepted: serializer.serialize(sketchModel, sketch.size, fileUrl)
      }
 }
