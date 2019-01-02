@@ -41,6 +41,11 @@ Item {
         contentWidth: sketchContent.width
         contentHeight: sketchContent.height
 
+        topMargin: contentHeight * 0.1
+        bottomMargin: topMargin
+        rightMargin: contentWidth * 0.1
+        leftMargin: rightMargin
+
         Page {
             id: sketchContent
 
