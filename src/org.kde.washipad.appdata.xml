@@ -4,11 +4,26 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>WashiPad</name>
+  <name xml:lang="ca">WashiPad</name>
+  <name xml:lang="nl">WashiPad</name>
+  <name xml:lang="pt">WashiPad</name>
+  <name xml:lang="uk">WashiPad</name>
+  <name xml:lang="x-test">xxWashiPadxx</name>
   <summary>Minimalist Sketchnoting Application</summary>
+  <summary xml:lang="ca">Aplicació d'esbós minimalista</summary>
+  <summary xml:lang="nl">Minimalistische toepassing voor schetsen maken</summary>
+  <summary xml:lang="pt">Aplicação Minimalista de Notas com Desenhos</summary>
+  <summary xml:lang="uk">Мінімалістична програма для ведення нотаток</summary>
+  <summary xml:lang="x-test">xxMinimalist Sketchnoting Applicationxx</summary>
   <description>
     <p>
         WashiPad is a minimalist sketchnoting application meant to be used with a graphic tablet.
     </p>
+    <p xml:lang="ca">El WashiPad és una aplicació d'esbós minimalista dissenyada per a ser emprada amb una tauleta gràfica.</p>
+    <p xml:lang="nl">WashiPad is een minimalistische toepassing voor maken van schetsen bedoeld om gebruikt te worden met een grafisch tablet.</p>
+    <p xml:lang="pt">O WashiPad é uma aplicação minimalista para tirar notas que pretende ser usada com uma tablete gráfica.</p>
+    <p xml:lang="uk">WashiPad — мінімалістична програма для ведення нотаток, яку призначено для використання на планшетах.</p>
+    <p xml:lang="x-test">xxWashiPad is a minimalist sketchnoting application meant to be used with a graphic tablet.xx</p>
   </description>
   <url type="homepage">https://washipad.kde.org</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=washipad</url>
