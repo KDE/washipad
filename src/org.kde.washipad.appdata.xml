@@ -14,6 +14,7 @@
   <name xml:lang="it">WashiPad</name>
   <name xml:lang="ko">WashiPad</name>
   <name xml:lang="nl">WashiPad</name>
+  <name xml:lang="nn">WashiPad</name>
   <name xml:lang="pt">WashiPad</name>
   <name xml:lang="ru">WashiPad</name>
   <name xml:lang="sk">WashiPad</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="it">Applicazione minimalista per prendere appunti</summary>
   <summary xml:lang="ko">최소한의 스케치 노트 프로그램</summary>
   <summary xml:lang="nl">Minimalistische toepassing voor schetsen maken</summary>
+  <summary xml:lang="nn">Minimalistisk skisseprogram</summary>
   <summary xml:lang="pt">Aplicação Minimalista de Notas com Desenhos</summary>
   <summary xml:lang="sv">Minimalistiskt skissanteckningsprogram</summary>
   <summary xml:lang="uk">Мінімалістична програма для ведення нотаток</summary>
@@ -48,6 +50,7 @@
     <p xml:lang="it">WashiPad è un'applicazione minimalista per prendere appunti, pensata per essere utilizzata con una tavoletta grafica.</p>
     <p xml:lang="ko">WashiPad는 그래픽 태블릿과 함께 사용할 수 있는 최소한의 스케치 노트 프로그램입니다.</p>
     <p xml:lang="nl">WashiPad is een minimalistische toepassing voor maken van schetsen bedoeld om gebruikt te worden met een grafisch tablet.</p>
+    <p xml:lang="nn">WashiPad er eit minimalistisk program for teikning av skisser med teikneplate.</p>
     <p xml:lang="pt">O WashiPad é uma aplicação minimalista para tirar notas que pretende ser usada com uma tablete gráfica.</p>
     <p xml:lang="sv">Washipad är ett minimalistiskt skissanteckningsprogram avsett att användas med en grafisk ritplatta.</p>
     <p xml:lang="uk">WashiPad — мінімалістична програма для ведення нотаток, яку призначено для використання на планшетах.</p>
