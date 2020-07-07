@@ -11,6 +11,7 @@
   <name xml:lang="et">WashiPad</name>
   <name xml:lang="fi">WashiPad</name>
   <name xml:lang="fr">WashiPad</name>
+  <name xml:lang="gl">WashiPad</name>
   <name xml:lang="it">WashiPad</name>
   <name xml:lang="ko">WashiPad</name>
   <name xml:lang="nl">WashiPad</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="et">Minimalistlik visandamise rakendus</summary>
   <summary xml:lang="fi">Minimalistinen luonnostelusovellus</summary>
   <summary xml:lang="fr">Application de croquis-note minimaliste</summary>
+  <summary xml:lang="gl">Aplicación minimalista para tomar notas</summary>
   <summary xml:lang="it">Applicazione minimalista per prendere appunti</summary>
   <summary xml:lang="ko">최소한의 스케치 노트 프로그램</summary>
   <summary xml:lang="nl">Minimalistische toepassing voor schetsen maken</summary>
@@ -51,6 +53,7 @@
     <p xml:lang="et">WashiPad on minimalistlik visandamise rakendus kasutamiseks graafikalaual.</p>
     <p xml:lang="fi">WashiPad on piirtopöydän kanssa käytettäväksi tarkoitettu minimalistinen luonnostelusovellus.</p>
     <p xml:lang="fr">WashiPad est une application de croquis-note minimaliste conçue pour être utilisée avec une tablette graphique.</p>
+    <p xml:lang="gl">WashiPad é unha aplicación minimalista para tomar notas, pensada para usar cunha tableta gráfica.</p>
     <p xml:lang="it">WashiPad è un'applicazione minimalista per prendere appunti, pensata per essere utilizzata con una tavoletta grafica.</p>
     <p xml:lang="ko">WashiPad는 그래픽 태블릿과 함께 사용할 수 있는 최소한의 스케치 노트 프로그램입니다.</p>
     <p xml:lang="nl">WashiPad is een minimalistische toepassing voor maken van schetsen bedoeld om gebruikt te worden met een grafisch tablet.</p>
