@@ -31,6 +31,7 @@
   <name xml:lang="sk">WashiPad</name>
   <name xml:lang="sl">WashiPad</name>
   <name xml:lang="sv">Washipad</name>
+  <name xml:lang="tr">WashiPad</name>
   <name xml:lang="uk">WashiPad</name>
   <name xml:lang="x-test">xxWashiPadxx</name>
   <name xml:lang="zh-TW">WashiPad</name>
@@ -60,6 +61,7 @@
   <summary xml:lang="ru">Минималистичное приложение для создания эскизов.</summary>
   <summary xml:lang="sl">Minimalističen program za skiciranje</summary>
   <summary xml:lang="sv">Minimalistiskt skissanteckningsprogram</summary>
+  <summary xml:lang="tr">Minimalist Eskiz Alma Uygulaması</summary>
   <summary xml:lang="uk">Мінімалістична програма для ведення нотаток</summary>
   <summary xml:lang="x-test">xxMinimalist Sketchnoting Applicationxx</summary>
   <description>
@@ -91,6 +93,7 @@
     <p xml:lang="ru">WashiPad — это минималистичное приложение для создания эскизов, предназначенное для использования на планшетах.</p>
     <p xml:lang="sl">WashiPad je minimalistični program za skiciranje, namenjen uporabi na grafičnem tabličnem računalniku.</p>
     <p xml:lang="sv">Washipad är ett minimalistiskt skissanteckningsprogram avsett att användas med en grafisk ritplatta.</p>
+    <p xml:lang="tr">WashiPad, bir tablet ile kullanmak üzere tasarlanmış, minimalist bir eskiz alma uygulamasıdır.</p>
     <p xml:lang="uk">WashiPad — мінімалістична програма для ведення нотаток, яку призначено для використання на планшетах.</p>
     <p xml:lang="x-test">xxWashiPad is a minimalist sketchnoting application meant to be used with a graphic tablet.xx</p>
   </description>
