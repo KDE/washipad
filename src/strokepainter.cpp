@@ -24,6 +24,7 @@
 #include "strokepainter.h"
 
 #include <QPainter>
+#include <QPainterPath>
 #include <QVector2D>
 
 #include "stroke.h"
