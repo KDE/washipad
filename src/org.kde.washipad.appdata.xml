@@ -100,7 +100,7 @@
     <p xml:lang="uk">WashiPad — мінімалістична програма для ведення нотаток, яку призначено для використання на планшетах.</p>
     <p xml:lang="x-test">xxWashiPad is a minimalist sketchnoting application meant to be used with a graphic tablet.xx</p>
   </description>
-  <url type="homepage">https://washipad.kde.org</url>
+  <url type="homepage">https://apps.kde.org/washipad/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=washipad</url>
   <project_group>KDE</project_group>
   <provides>

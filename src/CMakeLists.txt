@@ -8,9 +8,9 @@ set(lib_SRCS
 
 add_library(washipadlib STATIC ${lib_SRCS})
 target_link_libraries(washipadlib
-    Qt5::Quick
-    Qt5::Svg
-    Qt5::Widgets
+    Qt::Quick
+    Qt::Svg
+    Qt::Widgets
 )
 
 set(exec_SRCS
@@ -21,9 +21,6 @@ set(exec_SRCS
     strokelistitem.cpp
     strokepainter.cpp
     tabletevent.cpp
-)
-
-qt5_add_resources(exec_SRCS
     main.qrc
 )
 

@@ -30,8 +30,7 @@
 #include <QQuickPaintedItem>
 
 #include "stroke.h"
-
-class SketchModel;
+#include "sketchmodel.h"
 
 class StrokeListItem : public QQuickPaintedItem
 {

@@ -6,7 +6,7 @@ macro(washipad_auto_tests)
         add_executable(${_testname} ${_testname}.cpp)
         add_test(${_testname} ${_testname})
         target_link_libraries(${_testname}
-            Qt5::Test
+            Qt::Test
             washipadlib
         )
     endforeach(_testname)

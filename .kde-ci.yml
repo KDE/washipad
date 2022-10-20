@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2022 Tobias Fella <fella@posteo.de>
+# SPDX-License-Identifier: BSD-2-Clause
+
+Dependencies:
+- 'on': ['@all']
+  'require':
+    'frameworks/extra-cmake-modules': '@stable'
+
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
+

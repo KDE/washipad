@@ -89,7 +89,6 @@ void SketchSerializer::serialize(SketchModel *model, const QSize &size, const QU
     auto serializer = createSerializer(size, fileUrl.toLocalFile());
     auto painter = std::make_unique<QPainter>(serializer->device());
     painter->setRenderHint(QPainter::Antialiasing);
-    painter->setRenderHint(QPainter::HighQualityAntialiasing);
 
     for (const auto &stroke : qAsConst(strokes)) {
         StrokePainter::render(stroke, painter.get());

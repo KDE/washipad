@@ -23,7 +23,7 @@
 
 import QtQuick 2.0
 import QtQuick.Window 2.0
-import QtQuick.Dialogs 1.0
+import Qt.labs.platform 1.1
 
 import WashiPad 1.0
 
@@ -57,9 +57,11 @@ Rectangle {
     FileDialog {
          id: saveDialog
          title: "Save as..."
-         folder: shortcuts.home
-         selectExisting: false
+         fileMode: FileDialog.SaveFile
+         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
          nameFilters: [ "SVG Image (*.svg)", "PNG Image (*.png)" ]
-         onAccepted: serializer.serialize(sketchModel, sketch.size, fileUrl)
+         onAccepted: {
+             serializer.serialize(sketchModel, sketch.size, file)
+         }
      }
 }
