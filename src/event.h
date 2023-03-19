@@ -2,14 +2,13 @@
 // SPDX-FileCopyrightText: 2018 Kevin Ottens <ervin@kde.org>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-#ifndef TABLETEVENT_H
-#define TABLETEVENT_H
+#pragma once
 
 #include "stroke.h"
 
 class QTabletEvent;
 
-class TabletEvent
+class Event
 {
     Q_GADGET
     Q_PROPERTY(float x MEMBER x)
@@ -24,12 +23,20 @@ public:
     };
     Q_ENUM(Pointer)
 
-    static TabletEvent create(QTabletEvent *event);
-
     float x = 0.0f;
     float y = 0.0f;
     float pressure = 0.0f;
     Pointer pointer = Pointer::Pen;
 };
 
-#endif // TABLETEVENT_H
+class TabletEvent: Event
+{
+public:
+    static Event create(QTabletEvent* event);
+};
+
+class MouseEvent: Event
+{
+public:
+    static Event create(const float x, const float y, const int button);
+};

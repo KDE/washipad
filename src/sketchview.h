@@ -7,7 +7,7 @@
 
 #include <QQuickView>
 
-#include "tabletevent.h"
+#include "event.h"
 
 class SketchViewHandler : public QObject
 {

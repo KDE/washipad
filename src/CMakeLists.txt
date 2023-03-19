@@ -20,7 +20,7 @@ set(exec_SRCS
     strokeitem.cpp
     strokelistitem.cpp
     strokepainter.cpp
-    tabletevent.cpp
+    event.cpp
     main.qrc
 )
 

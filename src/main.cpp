@@ -23,14 +23,14 @@ int main(int argc, char *argv[])
     qRegisterMetaType<StrokeSample>();
     qRegisterMetaType<Stroke>();
     qRegisterMetaType<Stroke::Type>();
-    qRegisterMetaType<TabletEvent>();
+    qRegisterMetaType<Event>();
 
     qmlRegisterType<PressureEquation>("WashiPad", 1, 0, "PressureEquation");
     qmlRegisterUncreatableType<StrokeSample>("WashiPad", 1, 0, "StrokeSample", "Use the createSample function on SketchViewHandler instead");
     qmlRegisterUncreatableType<Stroke>("WashiPad", 1, 0, "Stroke", "Use the createStroke function on SketchViewHandler instead");
 
     qmlRegisterType<SketchViewHandler>("WashiPad", 1, 0, "SketchViewHandler");
-    qmlRegisterUncreatableType<TabletEvent>("WashiPad", 1, 0, "TabletEvent", "They are provided by the SketchViewHandler");
+    qmlRegisterUncreatableType<Event>("WashiPad", 1, 0, "TabletEvent", "They are provided by the SketchViewHandler");
 
     qmlRegisterType<SketchModel>("WashiPad", 1, 0, "SketchModel");
     qmlRegisterType<SketchSerializer>("WashiPad", 1, 0, "SketchSerializer");
