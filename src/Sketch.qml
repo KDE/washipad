@@ -27,7 +27,7 @@ Item {
         rightMargin: contentWidth * 0.1
         leftMargin: rightMargin
 
-        Page {
+        PaintingCanvas {
             id: sketchContent
 
             StrokeListItem {
