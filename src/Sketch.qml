@@ -4,6 +4,8 @@
 
 import QtQuick 2.0
 import QtQuick.Window 2.0
+import QtQuick.Controls 2.0
+
 
 import WashiPad 1.0
 
@@ -18,14 +20,19 @@ Item {
 
     Flickable {
         id: flickable
-        anchors.fill: parent
-        contentWidth: sketchContent.width
-        contentHeight: sketchContent.height
 
+        anchors.fill: parent
+
+        clip: true
         topMargin: contentHeight * 0.1
         bottomMargin: topMargin
         rightMargin: contentWidth * 0.1
         leftMargin: rightMargin
+
+        interactive: !mouseArea.isPress
+
+        contentWidth: sketchContent.width
+        contentHeight: sketchContent.height
 
         PaintingCanvas {
             id: sketchContent
@@ -50,6 +57,33 @@ Item {
                 id: currentStroke
                 anchors.fill: parent
                 z: stroke.type === Stroke.Outline ? 1 : 0
+            }
+        }
+
+        ScrollBar.vertical: ScrollBar {anchors.right: flickable.right}
+        ScrollBar.horizontal: ScrollBar {anchors.bottom: flickable.bottom}
+
+        MouseArea {
+            id: mouseArea
+
+            property bool isPress: false
+            property var lastButton
+
+            anchors.fill: parent
+            enabled: true
+            acceptedButtons: Qt.LeftButton | Qt.rightButton
+
+            onPressed: {
+                if (!isPress) {
+                    isPress = true
+                    lastButton = mouse.button
+                }
+            }
+
+            onReleased: {
+                if (mouse.button === lastButton) {
+                    isPress = false
+                }
             }
         }
     }
