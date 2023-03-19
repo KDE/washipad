@@ -26,7 +26,7 @@ StrokeSample SketchViewHandler::createSample(const QVector2D &position, float wi
     return {position, width};
 }
 
-TabletEvent SketchViewHandler::point() const
+Event SketchViewHandler::point() const
 {
     return m_point;
 }
@@ -49,6 +49,22 @@ void SketchViewHandler::onTabletEventReceived(QTabletEvent *event)
         emit pressedChanged(m_pressed);
     }
 }
+
+void SketchViewHandler::setPressed(const bool pressed)
+{
+    if (m_pressed == pressed) {
+        return;
+    }
+    m_pressed = pressed;
+    emit pressedChanged(m_pressed);
+}
+
+void SketchViewHandler::mouseMoved(const float x, const float y, const int button)
+{
+    m_point = MouseEvent::create(x, y, button);
+    emit pointChanged(m_point);
+}
+
 
 SketchView *SketchView::instance()
 {

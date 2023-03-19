@@ -4,7 +4,7 @@
 
 import QtQuick 2.0
 import QtQuick.Window 2.0
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.15
 
 
 import WashiPad 1.0
@@ -71,19 +71,27 @@ Item {
 
             anchors.fill: parent
             enabled: true
-            acceptedButtons: Qt.LeftButton | Qt.rightButton
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
 
             onPressed: {
                 if (!isPress) {
                     isPress = true
                     lastButton = mouse.button
+
+                    handler.pressed = isPress
                 }
             }
 
             onReleased: {
                 if (mouse.button === lastButton) {
                     isPress = false
+
+                    handler.pressed = isPress
                 }
+            }
+
+            onPositionChanged: {
+                handler.mouseMoved(mouse.x - flickable.contentX, mouse.y - flickable.contentY, lastButton)
             }
         }
     }
