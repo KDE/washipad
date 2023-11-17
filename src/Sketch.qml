@@ -17,6 +17,7 @@ Item {
     property SketchModel model
     property color penColor: "black"
     readonly property var penType: (penColor === Qt.rgba(0, 0, 0, 1)) ? Stroke.Outline : Stroke.Fill
+    property alias isMouseSupportEnabled: mouseArea.enabled
 
     Flickable {
         id: flickable
@@ -70,7 +71,6 @@ Item {
             property var lastButton
 
             anchors.fill: parent
-            enabled: true
             acceptedButtons: Qt.LeftButton | Qt.RightButton
 
             onPressed: {

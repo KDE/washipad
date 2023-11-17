@@ -21,6 +21,7 @@ Rectangle {
         anchors.fill: parent
         penColor: toolBar.currentColor
         model: sketchModel
+        isMouseSupportEnabled: toolBar.isMouseSupportEnabled
     }
 
     ToolBar {

@@ -9,6 +9,7 @@ import WashiPad 1.0
 
 Row {
     id: root
+    property bool isMouseSupportEnabled: false
     property point cursorPos
     property color currentColor: "black"
 
@@ -38,6 +39,19 @@ Row {
             color: model.modelData
             active: root.currentColor === color
             onClicked: root.currentColor = color
+        }
+    }
+
+    ToolButton {
+        id: mouseToggler
+
+        onClicked: root.isMouseSupportEnabled = !root.isMouseSupportEnabled
+
+        Image {
+            anchors.fill: parent
+            source: root.isMouseSupportEnabled ? "qrc:/input-mouse.svg" : "qrc:/input-tablet.svg"
+            fillMode: Image.PreserveAspectFit
+            sourceSize: Qt.size(width, height)
         }
     }
 
