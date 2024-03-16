@@ -68,6 +68,7 @@
   <summary xml:lang="tr">Minimalist Eskiz Alma Uygulaması</summary>
   <summary xml:lang="uk">Мінімалістична програма для ведення нотаток</summary>
   <summary xml:lang="x-test">xxMinimalist Sketchnoting Applicationxx</summary>
+  <summary xml:lang="zh-TW">精簡視覺筆記應用程式</summary>
   <description>
     <p>
         WashiPad is a minimalist sketchnoting application meant to be used with a graphic tablet.
@@ -102,6 +103,7 @@
     <p xml:lang="tr">WashiPad, bir tablet ile kullanmak üzere tasarlanmış, minimalist bir eskiz alma uygulamasıdır.</p>
     <p xml:lang="uk">WashiPad — мінімалістична програма для ведення нотаток, яку призначено для використання на планшетах.</p>
     <p xml:lang="x-test">xxWashiPad is a minimalist sketchnoting application meant to be used with a graphic tablet.xx</p>
+    <p xml:lang="zh-TW">WashiPad 是一個為繪圖板設計的精簡視覺筆記應用程式。</p>
   </description>
   <url type="homepage">https://apps.kde.org/washipad/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=washipad</url>
