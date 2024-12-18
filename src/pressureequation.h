@@ -26,13 +26,13 @@ public:
     float pressure() const;
     float width() const;
 
-public slots:
+public Q_SLOTS:
     void setMinWidth(float minWidth);
     void setMaxWidth(float maxWidth);
 
     void setPressure(float pressure);
 
-signals:
+Q_SIGNALS:
     void minWidthChanged(float minWidth);
     void maxWidthChanged(float maxWidth);
 

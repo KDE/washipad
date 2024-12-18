@@ -29,11 +29,11 @@ public:
     Stroke::Type type() const;
     SketchModel *model() const;
 
-public slots:
+public Q_SLOTS:
     void setType(Stroke::Type type);
     void setModel(SketchModel *model);
 
-signals:
+Q_SIGNALS:
     void typeChanged(Stroke::Type type);
     void modelChanged(SketchModel *model);
 

@@ -39,14 +39,14 @@ bool SketchViewHandler::isPressed() const
 void SketchViewHandler::onTabletEventReceived(QTabletEvent *event)
 {
     m_point = TabletEvent::create(event);
-    emit pointChanged(m_point);
+    Q_EMIT pointChanged(m_point);
 
     if (event->type() == QEvent::TabletPress && !m_pressed) {
         m_pressed = true;
-        emit pressedChanged(m_pressed);
+        Q_EMIT pressedChanged(m_pressed);
     } else if (event->type() == QEvent::TabletRelease && m_pressed) {
         m_pressed = false;
-        emit pressedChanged(m_pressed);
+        Q_EMIT pressedChanged(m_pressed);
     }
 }
 
@@ -56,13 +56,13 @@ void SketchViewHandler::setPressed(const bool pressed)
         return;
     }
     m_pressed = pressed;
-    emit pressedChanged(m_pressed);
+    Q_EMIT pressedChanged(m_pressed);
 }
 
 void SketchViewHandler::mouseMoved(const float x, const float y, const int button)
 {
     m_point = MouseEvent::create(x, y, button);
-    emit pointChanged(m_point);
+    Q_EMIT pointChanged(m_point);
 }
 
 
@@ -94,5 +94,5 @@ void SketchView::tabletEvent(QTabletEvent *event)
 
     m_lastType = event->type();
     m_lastGlobalPos = event->globalPos();
-    emit tabletEventReceived(event);
+    Q_EMIT tabletEventReceived(event);
 }

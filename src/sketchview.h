@@ -25,11 +25,11 @@ public:
     Event point() const;
     bool isPressed() const;
 
-signals:
+Q_SIGNALS:
     void pointChanged(const Event &point);
     void pressedChanged(bool pressed);
 
-private slots:
+private Q_SLOTS:
     void onTabletEventReceived(QTabletEvent *event);
 
 private:
@@ -48,7 +48,7 @@ public:
 
     void tabletEvent(QTabletEvent *event) override;
 
-signals:
+Q_SIGNALS:
     void tabletEventReceived(QTabletEvent *event);
 
 private:
