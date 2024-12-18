@@ -26,11 +26,11 @@ int main(int argc, char *argv[])
     qRegisterMetaType<Event>();
 
     qmlRegisterType<PressureEquation>("WashiPad", 1, 0, "PressureEquation");
-    qmlRegisterUncreatableType<StrokeSample>("WashiPad", 1, 0, "StrokeSample", "Use the createSample function on SketchViewHandler instead");
-    qmlRegisterUncreatableType<Stroke>("WashiPad", 1, 0, "Stroke", "Use the createStroke function on SketchViewHandler instead");
+    qmlRegisterUncreatableType<StrokeSample>("WashiPad", 1, 0, "StrokeSample", QStringLiteral("Use the createSample function on SketchViewHandler instead"));
+    qmlRegisterUncreatableType<Stroke>("WashiPad", 1, 0, "Stroke", QStringLiteral("Use the createStroke function on SketchViewHandler instead"));
 
     qmlRegisterType<SketchViewHandler>("WashiPad", 1, 0, "SketchViewHandler");
-    qmlRegisterUncreatableType<Event>("WashiPad", 1, 0, "TabletEvent", "They are provided by the SketchViewHandler");
+    qmlRegisterUncreatableType<Event>("WashiPad", 1, 0, "TabletEvent", QStringLiteral("They are provided by the SketchViewHandler"));
 
     qmlRegisterType<SketchModel>("WashiPad", 1, 0, "SketchModel");
     qmlRegisterType<SketchSerializer>("WashiPad", 1, 0, "SketchSerializer");
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<StrokeListItem>("WashiPad", 1, 0, "StrokeListItem");
 
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl("qrc:/main.qml"));
+    view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));
     view.setCursor(Qt::BlankCursor);
     view.showFullScreen();
     return app.exec();
