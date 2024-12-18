@@ -15,11 +15,7 @@ Event TabletEvent::create(QTabletEvent *event)
         static_cast<float>(event->posF().x()),
         static_cast<float>(event->posF().y()),
         static_cast<float>(event->pressure()),
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         (event->pointerType() == QPointingDevice::PointerType::Eraser) ? Pointer::Eraser : Pointer::Pen
-#else
-        (event->pointerType() == QTabletEvent::Eraser) ? Pointer::Eraser : Pointer::Pen
-#endif
     };
 }
 
