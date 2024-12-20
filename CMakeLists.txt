@@ -47,7 +47,7 @@ ecm_setup_version(${PROJECT_VERSION}
 add_subdirectory(src)
 
 if (BUILD_TESTING)
-    find_package(Qt6Test ${KF_MIN_VERSION})
+    find_package(Qt6Test ${QT_MIN_VERSION})
     add_subdirectory(tests)
 endif()
 
