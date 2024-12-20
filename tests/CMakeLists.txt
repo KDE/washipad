@@ -1,18 +1,5 @@
-include_directories(${CMAKE_SOURCE_DIR}/src)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+# SPDX-FileCopyrightText: 2024 Carl Schwan <carlschwan@kde.org>
+# SPDX-License-Identifier: BSD-2-Clause
 
-macro(washipad_auto_tests)
-    foreach(_testname ${ARGN})
-        add_executable(${_testname} ${_testname}.cpp)
-        add_test(${_testname} ${_testname})
-        target_link_libraries(${_testname}
-            Qt::Test
-            washipadlib
-        )
-    endforeach(_testname)
-endmacro(washipad_auto_tests)
-
-washipad_auto_tests(
-    sketchmodeltest
-    stroketest
-)
+ecm_add_test(sketchmodeltest LINK_LIBRARIES Qt::Test washipadlib)
+ecm_add_test(stroketest LINK_LIBRARIES Qt::Test washipadlib)

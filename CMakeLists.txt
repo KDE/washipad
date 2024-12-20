@@ -8,6 +8,7 @@ include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
+include(ECMAddTests)
 
 find_package(Qt6 REQUIRED Quick Svg Widgets Test)
 
