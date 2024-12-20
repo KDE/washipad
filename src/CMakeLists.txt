@@ -23,12 +23,19 @@ set(exec_SRCS
     strokelistitem.cpp
     strokepainter.cpp
     event.cpp
-    main.qrc
 )
 
 add_executable(washipad ${exec_SRCS})
-target_link_libraries(washipad washipadlib)
+ecm_add_qml_module(washipad
+    URI WashiPad
+    QML_FILES
+        Main.qml
+        PaintingCanvas.qml
+        PageMarker.qml
+        Sketch.qml
+)
+target_link_libraries(washipad PUBLIC washipadlib)
 
-install(TARGETS washipad DESTINATION ${KDE_INSTALL_BINDIR})
+install(TARGETS washipad DESTINATION ${KF6_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.washipad.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.washipad.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

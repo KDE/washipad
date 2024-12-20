@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.loadFromModule("WashiPad", "Main");
 
     return app.exec();
 }

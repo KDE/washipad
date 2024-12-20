@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>PaintingCanvas.qml</file>
-        <file>PageMarker.qml</file>
-        <file>Sketch.qml</file>
-    </qresource>
-</RCC>
