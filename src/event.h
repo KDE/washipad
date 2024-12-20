@@ -4,9 +4,7 @@
 
 #pragma once
 
-#include "stroke.h"
-
-class QTabletEvent;
+#include <QObject>
 
 class Event
 {
@@ -27,16 +25,6 @@ public:
     float y = 0.0f;
     float pressure = 0.0f;
     Pointer pointer = Pointer::Pen;
-};
 
-class TabletEvent: Event
-{
-public:
-    static Event create(QTabletEvent* event);
-};
-
-class MouseEvent: Event
-{
-public:
-    static Event create(const float x, const float y, const int button);
+    static Event create(const float x, const float y, const float presure, const Pointer pointerType);
 };

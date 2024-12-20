@@ -4,27 +4,12 @@
 
 #include "event.h"
 
-#include <QTabletEvent>
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-#include <QPointingDevice>
-#endif
-
-Event TabletEvent::create(QTabletEvent *event)
+Event Event::create(const float x, const float y, const float presure, const Pointer pointer)
 {
     return {
-        static_cast<float>(event->posF().x()),
-        static_cast<float>(event->posF().y()),
-        static_cast<float>(event->pressure()),
-        (event->pointerType() == QPointingDevice::PointerType::Eraser) ? Pointer::Eraser : Pointer::Pen
-    };
-}
-
-Event MouseEvent::create(const float x, const float y, const int button)
-{
-    return {
-        static_cast<float>(x),
-        static_cast<float>(y),
-        static_cast<float>(0.5f),
-        (button == Qt::RightButton) ? Pointer::Eraser : Pointer::Pen
+        x,
+        y,
+        presure,
+        pointer
     };
 }

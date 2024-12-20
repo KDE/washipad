@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<PressureEquation>("WashiPad", 1, 0, "PressureEquation");
     qmlRegisterUncreatableType<StrokeSample>("WashiPad", 1, 0, "StrokeSample", QStringLiteral("Use the createSample function on SketchViewHandler instead"));
     qmlRegisterUncreatableType<Stroke>("WashiPad", 1, 0, "Stroke", QStringLiteral("Use the createStroke function on SketchViewHandler instead"));
+    qmlRegisterUncreatableType<Event>("WashiPad", 1, 0, "Event", QStringLiteral("Use the createStroke function on SketchViewHandler instead"));
 
     qmlRegisterType<SketchViewHandler>("WashiPad", 1, 0, "SketchViewHandler");
     qmlRegisterUncreatableType<Event>("WashiPad", 1, 0, "TabletEvent", QStringLiteral("They are provided by the SketchViewHandler"));

@@ -91,8 +91,24 @@ Item {
             }
 
             onPositionChanged: (mouse) => {
-                handler.mouseMoved(mouse.x - flickable.contentX, mouse.y - flickable.contentY, lastButton)
+                handler.mouseMoved(mouse.x - flickable.contentX, mouse.y - flickable.contentY, 0.5, lastButton === Qt.LeftButton ? Event.Pen : Event.Eraser)
             }
+        }
+    }
+
+    PointHandler {
+        acceptedPointerTypes: PointerDevice.Pen
+        onActiveChanged: handler.pressed = active;
+        onPointChanged: if (active) {
+            handler.mouseMoved(point.position.x - flickable.contentX, point.position.y - flickable.contentY, point.pressure, Event.Eraser)
+        }
+    }
+
+    PointHandler {
+        acceptedPointerTypes: PointerDevice.Eraser
+        onActiveChanged: handler.pressed = active;
+        onPointChanged: if (active) {
+            handler.mouseMoved(point.position.x - flickable.contentX, point.position.y - flickable.contentY, point.pressure, Event.Eraser)
         }
     }
 

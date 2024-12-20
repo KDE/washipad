@@ -2,12 +2,10 @@
 // SPDX-FileCopyrightText: 2018 Kevin Ottens <ervin@kde.org>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-#ifndef SKETCHVIEW_H
-#define SKETCHVIEW_H
-
-#include <QQuickView>
+#pragma once
 
 #include "event.h"
+#include "stroke.h"
 
 class SketchViewHandler : public QObject
 {
@@ -20,7 +18,7 @@ public:
     Q_INVOKABLE Stroke createStroke(Stroke::Type type, const QColor &color) const;
     Q_INVOKABLE StrokeSample createSample(const QVector2D &position, float width) const;
     Q_INVOKABLE void setPressed(const bool pressed);
-    Q_INVOKABLE void mouseMoved(const float x, const float y, const int button);
+    Q_INVOKABLE void mouseMoved(const float x, const float y, const float pressure, const Event::Pointer pointerType);
 
     Event point() const;
     bool isPressed() const;
@@ -29,31 +27,8 @@ Q_SIGNALS:
     void pointChanged(const Event &point);
     void pressedChanged(bool pressed);
 
-private Q_SLOTS:
-    void onTabletEventReceived(QTabletEvent *event);
-
 private:
     Event m_point;
     bool m_active = false;
     bool m_pressed = false;
 };
-
-class SketchView : public QQuickView
-{
-    Q_OBJECT
-public:
-    static SketchView *instance();
-
-    explicit SketchView(QWindow *parent = nullptr);
-
-    void tabletEvent(QTabletEvent *event) override;
-
-Q_SIGNALS:
-    void tabletEventReceived(QTabletEvent *event);
-
-private:
-    QPoint m_lastGlobalPos;
-    QEvent::Type m_lastType = QEvent::None;
-};
-
-#endif // SKETCHVIEW_H
