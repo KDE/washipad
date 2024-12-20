@@ -19,6 +19,8 @@ Item {
     readonly property var penType: (penColor === Qt.rgba(0, 0, 0, 1)) ? Stroke.Outline : Stroke.Fill
     property alias isMouseSupportEnabled: mouseArea.enabled
 
+    property alias horizontalScrollBarHeight: horizontalScrollBar.height
+
     Flickable {
         id: flickable
 
@@ -61,8 +63,13 @@ Item {
             }
         }
 
-        ScrollBar.vertical: ScrollBar {anchors.right: flickable.right}
-        ScrollBar.horizontal: ScrollBar {anchors.bottom: flickable.bottom}
+        ScrollBar.vertical: ScrollBar {
+            anchors.right: flickable.right
+        }
+        ScrollBar.horizontal: ScrollBar {
+            id: horizontalScrollBar
+            anchors.bottom: flickable.bottom
+        }
 
         MouseArea {
             id: mouseArea

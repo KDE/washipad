@@ -68,6 +68,7 @@ Kirigami.ApplicationWindow {
             anchors {
                 bottom: parent.bottom
                 margins: Kirigami.Units.largeSpacing
+                bottomMargin: Kirigami.Units.largeSpacing + sketch.horizontalScrollBarHeight
                 horizontalCenter: parent.horizontalCenter
             }
 
