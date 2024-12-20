@@ -4,9 +4,13 @@
 
 #include <QApplication>
 #include <QQmlApplicationEngine>
+#include <QCommandLineParser>
 
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
+#include <KAboutData>
+
+#include "washipad-version.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,10 +18,41 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
+    KAboutData about(QStringLiteral("washipad"),
+                     i18n("WashiPad"),
+                     QStringLiteral(WASHIPAD_VERSION_STRING),
+                     i18n("Sketching app"),
+                     KAboutLicense::GPL_V3,
+                     i18n("© 2018-2024 KDE Community"));
+
+    about.addAuthor(i18n("Kevin Ottens"),
+                    i18n("Maintainer"),
+                    QStringLiteral("ervin@kde.org"));
+
+    about.addAuthor(i18n("Carl Schwan"),
+                    i18n("Maintainer"),
+                    QStringLiteral("carl@carlschwan.eu"),
+                    QStringLiteral("https://carlschwan.eu"),
+                    QUrl(QStringLiteral("https://carlschwan.eu/avatar.png")));
+
+    about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+    about.setOrganizationDomain("kde.org");
+
+    KAboutData::setApplicationData(about);
+
+    QCommandLineParser parser;
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
+
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
 
     engine.loadFromModule("WashiPad", "Main");
+
+    if (engine.rootObjects().isEmpty()) {
+        return -1;
+    }
 
     return app.exec();
 }

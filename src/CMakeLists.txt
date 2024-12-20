@@ -29,6 +29,7 @@ target_link_libraries(washipadlib PUBLIC
     Qt::Widgets
     KF6::I18n
     KF6::I18nQml
+    KF6::CoreAddons
 )
 
 add_executable(washipad main.cpp)

@@ -22,7 +22,7 @@ set_package_properties(Qt6 PROPERTIES
     PURPOSE "Required application components"
 )
 
-find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n)
+find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n CoreAddons)
 set_package_properties(KF6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components"
@@ -34,9 +34,15 @@ include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
 
+include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(ECMAddTests)
 include(ECMQmlModule)
+
+ecm_setup_version(${PROJECT_VERSION}
+    VARIABLE_PREFIX WASHIPAD
+    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/src/washipad-version.h
+)
 
 add_subdirectory(src)
 
