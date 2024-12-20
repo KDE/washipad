@@ -44,13 +44,5 @@ int main(int argc, char *argv[])
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    /*
-    SketchView view;
-    QObject::connect(view.engine(), &QQmlEngine::quit, &app, &QGuiApplication::quit);
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));
-    view.setCursor(Qt::BlankCursor);
-    view.showFullScreen();
-    */
     return app.exec();
 }
