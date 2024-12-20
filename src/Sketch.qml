@@ -73,7 +73,7 @@ Item {
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-            onPressed: {
+            onPressed: (mouse) => {
                 if (!isPress) {
                     isPress = true
                     lastButton = mouse.button
@@ -82,7 +82,7 @@ Item {
                 }
             }
 
-            onReleased: {
+            onReleased: (mouse) => {
                 if (mouse.button === lastButton) {
                     isPress = false
 
@@ -90,7 +90,7 @@ Item {
                 }
             }
 
-            onPositionChanged: {
+            onPositionChanged: (mouse) => {
                 handler.mouseMoved(mouse.x - flickable.contentX, mouse.y - flickable.contentY, lastButton)
             }
         }
@@ -126,7 +126,7 @@ Item {
             fillStrokes.eraseArea(point, radius)
         }
 
-        onPressedChanged: {
+        onPressedChanged: (pressed) => {
             if (isEraser())
                 return
 
