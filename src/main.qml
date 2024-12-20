@@ -2,11 +2,11 @@
 // SPDX-FileCopyrightText: 2018 Kevin Ottens <ervin@kde.org>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-import QtQuick 2.0
-import QtQuick.Window 2.0
-import Qt.labs.platform 1.1
+import QtQuick
+import QtQuick.Window
+import Qt.labs.platform
 
-import WashiPad 1.0
+import WashiPad
 
 Rectangle {
     id: background
