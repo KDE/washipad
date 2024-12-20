@@ -10,6 +10,10 @@
 #include <KLocalizedString>
 #include <KAboutData>
 
+#if __has_include("KCrash")
+#include <KCrash>
+#endif
+
 #include "washipad-version.h"
 
 int main(int argc, char *argv[])
@@ -37,6 +41,10 @@ int main(int argc, char *argv[])
 
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     about.setOrganizationDomain("kde.org");
+
+#if __has_include("KCrash")
+    KCrash::initialize();
+#endif
 
     KAboutData::setApplicationData(about);
 

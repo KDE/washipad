@@ -32,6 +32,10 @@ target_link_libraries(washipadlib PUBLIC
     KF6::CoreAddons
 )
 
+if (TARGET KF6::Crash)
+    target_link_libraries(washipadlib PUBLIC KF6::Crash)
+endif()
+
 add_executable(washipad main.cpp)
 target_link_libraries(washipad PUBLIC washipadlib washipadlibplugin)
 
