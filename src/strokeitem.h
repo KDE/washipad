@@ -6,12 +6,14 @@
 #define STROKEITEM_H
 
 #include <QQuickPaintedItem>
+#include <qqmlregistration.h>
 
 #include "stroke.h"
 
 class StrokeItem : public QQuickPaintedItem
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(Stroke stroke READ stroke WRITE setStroke NOTIFY strokeChanged)
 public:
     explicit StrokeItem(QQuickItem *parent = nullptr);

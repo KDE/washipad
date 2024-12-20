@@ -5,10 +5,14 @@
 #pragma once
 
 #include <QObject>
+#include <qqmlregistration.h>
 
 class Event
 {
     Q_GADGET
+    QML_ELEMENT
+    QML_UNCREATABLE("")
+
     Q_PROPERTY(float x MEMBER x)
     Q_PROPERTY(float y MEMBER y)
     Q_PROPERTY(float pressure MEMBER pressure)

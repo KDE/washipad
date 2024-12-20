@@ -13,12 +13,17 @@
 #include <QRectF>
 #include <QVector>
 #include <QVector2D>
+#include <qqmlregistration.h>
 
 class StrokeSample
 {
     Q_GADGET
+    QML_ELEMENT
+    QML_UNCREATABLE("")
+
     Q_PROPERTY(QVector2D position MEMBER position)
     Q_PROPERTY(float width MEMBER width)
+
 public:
     QVector2D position;
     float width = 1.0f;
@@ -29,8 +34,12 @@ public:
 class Stroke
 {
     Q_GADGET
+    QML_ELEMENT
+    QML_UNCREATABLE("")
+
     Q_PROPERTY(Stroke::Type type READ type WRITE setType)
     Q_PROPERTY(QColor color READ color WRITE setColor)
+
 public:
     enum class Type
     {

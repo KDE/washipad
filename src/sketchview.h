@@ -6,10 +6,12 @@
 
 #include "event.h"
 #include "stroke.h"
+#include <qqmlregistration.h>
 
 class SketchViewHandler : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(Event point READ point NOTIFY pointChanged)
     Q_PROPERTY(bool pressed READ isPressed WRITE setPressed NOTIFY pressedChanged)
 public:

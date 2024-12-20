@@ -6,12 +6,13 @@
 #define PRESSUREEQUATION_H
 
 #include <QObject>
-
-#include "stroke.h"
+#include <qqmlregistration.h>
 
 class PressureEquation : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+
     Q_PROPERTY(float minWidth READ minWidth WRITE setMinWidth NOTIFY minWidthChanged)
     Q_PROPERTY(float maxWidth READ maxWidth WRITE setMaxWidth NOTIFY maxWidthChanged)
 

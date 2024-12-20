@@ -1,22 +1,20 @@
 add_subdirectory(icons)
 
-set(lib_SRCS
+add_library(washipadlib STATIC)
+
+ecm_add_qml_module(washipadlib GENERATE_PLUGIN_SOURCE
+    URI WashiPad
+    QML_FILES
+        Main.qml
+        PaintingCanvas.qml
+        PageMarker.qml
+        Sketch.qml
+)
+
+target_sources(washipadlib PRIVATE
     pressureequation.cpp
     sketchmodel.cpp
     stroke.cpp
-)
-
-add_library(washipadlib STATIC ${lib_SRCS})
-target_link_libraries(washipadlib
-    Qt::Quick
-    Qt::Svg
-    Qt::Widgets
-    KF6::I18n
-    KF6::I18nQml
-)
-
-set(exec_SRCS
-    main.cpp
     sketchserializer.cpp
     sketchview.cpp
     strokeitem.cpp
@@ -25,16 +23,16 @@ set(exec_SRCS
     event.cpp
 )
 
-add_executable(washipad ${exec_SRCS})
-ecm_add_qml_module(washipad
-    URI WashiPad
-    QML_FILES
-        Main.qml
-        PaintingCanvas.qml
-        PageMarker.qml
-        Sketch.qml
+target_link_libraries(washipadlib PUBLIC
+    Qt::Quick
+    Qt::Svg
+    Qt::Widgets
+    KF6::I18n
+    KF6::I18nQml
 )
-target_link_libraries(washipad PUBLIC washipadlib)
+
+add_executable(washipad main.cpp)
+target_link_libraries(washipad PUBLIC washipadlib washipadlibplugin)
 
 install(TARGETS washipad DESTINATION ${KF6_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.washipad.desktop DESTINATION ${KDE_INSTALL_APPDIR})

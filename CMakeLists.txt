@@ -33,8 +33,10 @@ feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAG
 include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
+
 include(ECMInstallIcons)
 include(ECMAddTests)
+include(ECMQmlModule)
 
 add_subdirectory(src)
 

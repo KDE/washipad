@@ -122,11 +122,11 @@ Item {
     SketchViewHandler {
         id: handler
 
-        function isEraser() {
-            return point.pointer === TabletEvent.Eraser
+        function isEraser(): bool {
+            return point.pointer === Event.Eraser
         }
 
-        function isEmpty(rect) {
+        function isEmpty(rect: var): bool {
             return rect.left === rect.right
                 && rect.top === rect.bottom
         }
@@ -136,8 +136,8 @@ Item {
                                point.y + flickable.contentY)
         }
 
-        function addSample() {
-            var sample = createSample(createPoint(), pressureEquation.width)
+        function addSample(): void {
+            const sample = createSample(createPoint(), pressureEquation.width)
             currentStroke.addSample(sample)
         }
 

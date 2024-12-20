@@ -5,10 +5,9 @@
 #ifndef STROKELISTITEM_H
 #define STROKELISTITEM_H
 
-#include <memory>
-
 #include <QImage>
 #include <QQuickPaintedItem>
+#include <qqmlregistration.h>
 
 #include "stroke.h"
 #include "sketchmodel.h"
@@ -16,6 +15,8 @@
 class StrokeListItem : public QQuickPaintedItem
 {
     Q_OBJECT
+    QML_ELEMENT
+
     Q_PROPERTY(Stroke::Type type READ type WRITE setType NOTIFY typeChanged)
     Q_PROPERTY(SketchModel* model READ model WRITE setModel NOTIFY modelChanged)
 public:

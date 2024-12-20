@@ -6,12 +6,16 @@
 #define SKETCHSERIALIZER_H
 
 #include <QObject>
+#include <QUrl>
+#include <QSize>
+#include <qqmlregistration.h>
 
-class SketchModel;
+#include "sketchmodel.h"
 
 class SketchSerializer : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 public:
     using QObject::QObject;
 

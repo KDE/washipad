@@ -7,12 +7,15 @@
 
 #include <QObject>
 #include <QHash>
+#include <qqmlregistration.h>
 
 #include "stroke.h"
 
 class SketchModel : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+
 public:
     using QObject::QObject;
 
