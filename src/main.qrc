@@ -1,15 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>ColorButton.qml</file>
         <file>PaintingCanvas.qml</file>
         <file>PageMarker.qml</file>
         <file>Sketch.qml</file>
-        <file>ToolBar.qml</file>
-        <file>ToolButton.qml</file>
-        <file>document-save.svg</file>
-        <file>window-close.svg</file>
-        <file>input-mouse.svg</file>
-        <file>input-tablet.svg</file>
     </qresource>
 </RCC>

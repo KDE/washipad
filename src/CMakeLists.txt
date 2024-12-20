@@ -11,6 +11,8 @@ target_link_libraries(washipadlib
     Qt::Quick
     Qt::Svg
     Qt::Widgets
+    KF6::I18n
+    KF6::I18nQml
 )
 
 set(exec_SRCS

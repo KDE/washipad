@@ -3,8 +3,10 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include <QApplication>
-#include <QQmlEngine>
-#include <QQuickView>
+#include <QQmlApplicationEngine>
+
+#include <KLocalizedQmlContext>
+#include <KLocalizedString>
 
 #include "pressureequation.h"
 #include "sketchmodel.h"
@@ -15,10 +17,9 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
-    SketchView view;
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("washipad"));
 
-    QObject::connect(view.engine(), &QQmlEngine::quit, &app, &QGuiApplication::quit);
+    QApplication app(argc, argv);
 
     qRegisterMetaType<StrokeSample>();
     qRegisterMetaType<Stroke>();
@@ -37,9 +38,18 @@ int main(int argc, char *argv[])
     qmlRegisterType<StrokeItem>("WashiPad", 1, 0, "StrokeItem");
     qmlRegisterType<StrokeListItem>("WashiPad", 1, 0, "StrokeListItem");
 
+    QQmlApplicationEngine engine;
+    KLocalization::setupLocalizedContext(&engine);
+
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
+    /*
+    SketchView view;
+    QObject::connect(view.engine(), &QQmlEngine::quit, &app, &QGuiApplication::quit);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));
     view.setCursor(Qt::BlankCursor);
     view.showFullScreen();
+    */
     return app.exec();
 }

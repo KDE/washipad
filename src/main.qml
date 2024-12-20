@@ -3,47 +3,132 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
-import QtQuick.Window
+import QtQuick.Layouts
+import QtQuick.Controls as Controls
 import Qt.labs.platform
+import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as Addons
 
 import WashiPad
 
-Rectangle {
-    id: background
-    color: Qt.rgba(0.25, 0.25, 0.25, 1.0)
+Kirigami.ApplicationWindow {
+    id: root
 
-    SketchModel {
-        id: sketchModel
-    }
+    property bool isMouseSupportEnabled: false
+    property color currentColor: "black"
 
-    Sketch {
-        id: sketch
-        anchors.fill: parent
-        penColor: toolBar.currentColor
-        model: sketchModel
-        isMouseSupportEnabled: toolBar.isMouseSupportEnabled
-    }
+    pageStack.initialPage: Kirigami.Page {
+        id: page
 
-    ToolBar {
-        id: toolBar
-        anchors.top: parent.top
-        anchors.right: parent.right
-        cursorPos: sketch.cursorPos
-        onSaveRequested: saveDialog.open()
-    }
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
 
-    SketchSerializer {
-        id: serializer
-    }
+        background: Rectangle {
+            id: background
+            color: Qt.rgba(0.25, 0.25, 0.25, 1.0)
+        }
 
-    FileDialog {
-         id: saveDialog
-         title: "Save as..."
-         fileMode: FileDialog.SaveFile
-         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-         nameFilters: [ "SVG Image (*.svg)", "PNG Image (*.png)" ]
-         onAccepted: {
-             serializer.serialize(sketchModel, sketch.size, file)
+        contentItem: Sketch {
+            id: sketch
+            penColor: root.currentColor
+            model: sketchModel
+            isMouseSupportEnabled: root.isMouseSupportEnabled
+        }
+
+        actions: [
+            Kirigami.Action {
+                displayComponent: RowLayout {
+                    spacing: 0
+
+                }
+            },
+            Controls.Action {
+                text: root.isMouseSupportEnabled ? i18nc("@action:intoolbar", "Mouse Mode") : i18nc("@action:intoolbar", "Tablet Mode")
+                icon.name: root.isMouseSupportEnabled ? 'input-mouse-symbolic' : 'input-tablet-symbolic'
+                onTriggered: root.isMouseSupportEnabled = !root.isMouseSupportEnabled
+            },
+            Controls.Action {
+                text: i18nc("@action:intoolbar", "Save")
+                icon.name: 'document-save-symbolic'
+                onTriggered: saveDialog.open()
+            },
+            Kirigami.Action {
+                text: i18nc("@action:intoolbar", "Close")
+                icon.name: 'document-save-symbolic'
+                onTriggered: Qt.quit()
+                visible: root.visibility === Controls.ApplicationWindow.FullScreen
+            }
+        ]
+
+        Addons.FloatingToolBar {
+            z: 600000
+            parent: page.overlay
+            anchors {
+                bottom: parent.bottom
+                margins: Kirigami.Units.largeSpacing
+                horizontalCenter: parent.horizontalCenter
+            }
+
+            Controls.ButtonGroup {
+                id: colorGroup
+            }
+
+            padding: Kirigami.Units.largeSpacing
+
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+
+                Repeater {
+                    model: ["black", "gray", "#ee7700", "#1188cc", "#11aa11", "#cc3377", "#cc1111"]
+
+                    Controls.AbstractButton {
+                        id: button
+
+                        required property color modelData
+
+                        Controls.ButtonGroup.group: colorGroup
+
+                        onClicked: root.currentColor = modelData
+                        checkable: true
+                        checked: root.currentColor === modelData
+                        scale: checked ? 1.25 : 1
+
+                        background: Rectangle {
+                            color: button.modelData
+                            radius: Kirigami.Units.cornerRadius
+                            border {
+                                width: button.hovered || button.checked ? 1 : 0
+                                color: Kirigami.Theme.highlightColor
+                            }
+                        }
+
+                        implicitHeight: Kirigami.Units.gridUnit * 2
+                        implicitWidth: Kirigami.Units.gridUnit * 2
+                    }
+                }
+
+            }
+        }
+
+        SketchModel {
+            id: sketchModel
+        }
+
+        SketchSerializer {
+            id: serializer
+        }
+
+        FileDialog {
+             id: saveDialog
+             title: i18nc("@title:dialog", "Save as...")
+             fileMode: FileDialog.SaveFile
+             folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+             nameFilters: [ "SVG Image (*.svg)", "PNG Image (*.png)" ]
+             onAccepted: {
+                 serializer.serialize(sketchModel, sketch.size, file)
+             }
          }
      }
 }
