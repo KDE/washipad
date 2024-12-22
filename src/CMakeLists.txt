@@ -12,15 +12,15 @@ ecm_add_qml_module(washipadlib GENERATE_PLUGIN_SOURCE
 )
 
 target_sources(washipadlib PRIVATE
-    pressureequation.cpp
-    sketchmodel.cpp
-    stroke.cpp
-    sketchserializer.cpp
-    sketchview.cpp
-    strokeitem.cpp
-    strokelistitem.cpp
-    strokepainter.cpp
-    event.cpp
+    pressureequation.cpp pressureequation.h
+    sketchmodel.cpp sketchmodel.h
+    stroke.cpp stroke.h
+    sketchserializer.cpp sketchserializer.h
+    sketchview.cpp sketchview.h
+    strokeitem.cpp strokeitem.h
+    strokelistitem.cpp strokelistitem.h
+    strokepainter.cpp strokepainter.h
+    event.cpp event.h
 )
 
 target_link_libraries(washipadlib PUBLIC
