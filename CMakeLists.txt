@@ -38,10 +38,15 @@ include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(ECMAddTests)
 include(ECMQmlModule)
+include(ECMDeprecationSettings)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX WASHIPAD
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/src/washipad-version.h
+)
+
+ecm_set_disabled_deprecation_versions(QT 6.8.1
+    KF 6.9.0
 )
 
 add_subdirectory(src)

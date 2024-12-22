@@ -34,7 +34,7 @@ void StrokeListItem::eraseArea(const QVector2D &center, float radius)
 void StrokeListItem::paint(QPainter *painter)
 {
     const auto strokes = m_model->strokes(m_type);
-    for (const auto &stroke : qAsConst(strokes))
+    for (const auto &stroke : std::as_const(strokes))
         StrokePainter::render(stroke, painter);
 }
 
