@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>WashiPad</name>
+  <name xml:lang="ar">واشي باد</name>
   <name xml:lang="ca">WashiPad</name>
   <name xml:lang="ca-valencia">WashiPad</name>
   <name xml:lang="cs">WashiPad</name>
@@ -39,6 +40,7 @@
   <name xml:lang="x-test">xxWashiPadxx</name>
   <name xml:lang="zh-TW">WashiPad</name>
   <summary>Minimalist Sketchnoting Application</summary>
+  <summary xml:lang="ar">تطبيق تدوين الملاحظات على شكل رسم تخطيطي بسيط</summary>
   <summary xml:lang="ca">Aplicació d'esbós minimalista</summary>
   <summary xml:lang="ca-valencia">Aplicació d'esbós minimalista</summary>
   <summary xml:lang="de">Einfache Anwendung für Notizen</summary>
@@ -75,6 +77,7 @@
     <p>
         WashiPad is a minimalist sketchnoting application meant to be used with a graphic tablet.
     </p>
+    <p xml:lang="ar">واشي باد هو تطبيق تدوين ملاحظات بسيط مخصص للاستخدام مع الجهاز اللوحي الرسومي.</p>
     <p xml:lang="ca">El WashiPad és una aplicació d'esbós minimalista dissenyada per a ser emprada amb una tauleta gràfica.</p>
     <p xml:lang="ca-valencia">WashiPad és una aplicació d'esbós minimalista dissenyada per a ser emprada amb una tauleta gràfica.</p>
     <p xml:lang="de">WashiPad ist eine einfache Anwendung für Notizen mit einem Grafiktablett.</p>
