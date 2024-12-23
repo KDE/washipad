@@ -75,3 +75,5 @@ void SketchSerializer::serialize(SketchModel *model, const QSize &size, const QU
         StrokePainter::render(stroke, painter.get());
     }
 }
+
+#include "moc_sketchserializer.cpp"

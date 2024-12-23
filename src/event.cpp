@@ -13,3 +13,5 @@ Event Event::create(const float x, const float y, const float pressure, const Po
         pointer
     };
 }
+
+#include "moc_event.cpp"

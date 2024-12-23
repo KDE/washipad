@@ -76,3 +76,5 @@ void PressureEquation::updateWidth()
     m_width = computeWidth(m_minWidth, m_maxWidth, m_pressure);
     Q_EMIT widthChanged(m_width);
 }
+
+#include "moc_pressureequation.cpp"

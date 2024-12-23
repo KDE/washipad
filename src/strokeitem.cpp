@@ -38,3 +38,5 @@ void StrokeItem::paint(QPainter *painter)
 {
     StrokePainter::render(m_stroke, painter);
 }
+
+#include "moc_strokeitem.cpp"

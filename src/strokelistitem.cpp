@@ -67,3 +67,5 @@ void StrokeListItem::setModel(SketchModel *model)
     Q_EMIT modelChanged(model);
     update();
 }
+
+#include "moc_strokelistitem.cpp"

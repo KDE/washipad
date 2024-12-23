@@ -118,3 +118,5 @@ QRectF Stroke::boundingRect() const
 
     return m_boundingRectCache;
 }
+
+#include "moc_stroke.cpp"

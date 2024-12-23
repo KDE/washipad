@@ -85,3 +85,5 @@ QVector<Stroke> &SketchModel::strokesRef(Stroke::Type type)
     }
     Q_UNREACHABLE();
 }
+
+#include "moc_sketchmodel.cpp"

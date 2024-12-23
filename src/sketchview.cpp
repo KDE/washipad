@@ -46,3 +46,5 @@ void SketchViewHandler::mouseMoved(const float x, const float y, float pressure,
     m_point = Event::create(x, y, pressure, pointerType);
     Q_EMIT pointChanged(m_point);
 }
+
+#include "moc_sketchview.cpp"
