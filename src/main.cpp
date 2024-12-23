@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
                     QStringLiteral("ervin@kde.org"));
 
     about.addAuthor(i18n("Carl Schwan"),
-                    i18n("Maintainer"),
+                    i18n("Developer"),
                     QStringLiteral("carl@carlschwan.eu"),
                     QStringLiteral("https://carlschwan.eu"),
                     QUrl(QStringLiteral("https://carlschwan.eu/avatar.png")));
