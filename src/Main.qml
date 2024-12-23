@@ -4,6 +4,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Window
 import QtQuick.Controls as Controls
 import Qt.labs.platform
 import org.kde.kirigami as Kirigami
@@ -63,8 +64,25 @@ Kirigami.ApplicationWindow {
         ]
 
         Addons.FloatingToolBar {
-            z: 600000
+            id: toolBar
+
+            readonly property bool cursorNearToolBar: {
+                const fivemm = 5 * Screen.pixelDensity
+                const rect = Qt.rect(toolBar.x - fivemm, toolBar.y - fivemm,
+                                   toolBar.width + 2 * fivemm, toolBar.height + 2 * fivemm)
+                return sketch.cursorPos.x > rect.x && sketch.cursorPos.x < (rect.x + rect.width)
+                    && sketch.cursorPos.y > rect.y && sketch.cursorPos.y < (rect.y + rect.height)
+            }
+
+            opacity: cursorNearToolBar ? 0 : 1
+            Behavior on opacity {
+                NumberAnimation { duration: Kirigami.Units.shortDuration; easing.type: Easing.InOutQuad }
+            }
+
             parent: page.overlay
+            padding: Kirigami.Units.largeSpacing
+            z: 600000
+
             anchors {
                 bottom: parent.bottom
                 margins: Kirigami.Units.largeSpacing
@@ -75,8 +93,6 @@ Kirigami.ApplicationWindow {
             Controls.ButtonGroup {
                 id: colorGroup
             }
-
-            padding: Kirigami.Units.largeSpacing
 
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
