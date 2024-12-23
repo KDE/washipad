@@ -30,5 +30,5 @@ public:
     float pressure = 0.0f;
     Pointer pointer = Pointer::Pen;
 
-    static Event create(const float x, const float y, const float presure, const Pointer pointerType);
+    static Event create(const float x, const float y, const float pressure, const Pointer pointerType);
 };

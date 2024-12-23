@@ -4,12 +4,12 @@
 
 #include "event.h"
 
-Event Event::create(const float x, const float y, const float presure, const Pointer pointer)
+Event Event::create(const float x, const float y, const float pressure, const Pointer pointer)
 {
     return {
         x,
         y,
-        presure,
+        pressure,
         pointer
     };
 }

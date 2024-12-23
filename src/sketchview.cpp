@@ -41,8 +41,8 @@ void SketchViewHandler::setPressed(const bool pressed)
     Q_EMIT pressedChanged(m_pressed);
 }
 
-void SketchViewHandler::mouseMoved(const float x, const float y, float presure, const Event::Pointer pointerType)
+void SketchViewHandler::mouseMoved(const float x, const float y, float pressure, const Event::Pointer pointerType)
 {
-    m_point = Event::create(x, y, presure, pointerType);
+    m_point = Event::create(x, y, pressure, pointerType);
     Q_EMIT pointChanged(m_point);
 }
