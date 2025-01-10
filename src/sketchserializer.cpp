@@ -18,7 +18,7 @@
 class Serializer
 {
 public:
-    Serializer(std::unique_ptr<QPaintDevice> &&device,
+    explicit Serializer(std::unique_ptr<QPaintDevice> &&device,
                const std::function<void(QPaintDevice*)> writer = {})
         : m_device(std::move(device)),
           m_writer(writer)
