@@ -29,7 +29,7 @@ void SketchModel::eraseArea(Stroke::Type type, const QVector2D &center, float ra
     while (it != end) {
         const auto newStrokes = it->eraseArea(center, radius);
 
-        if (newStrokes.size() == 0) {
+        if (newStrokes.isEmpty()) {
             // Remove
             it = strokes.erase(it);
             end = std::end(strokes);
