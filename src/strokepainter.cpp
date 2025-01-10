@@ -53,9 +53,9 @@ void StrokePainter::render(const Stroke &stroke, QPainter *painter)
         path.lineTo(static_cast<qreal>(it->x()),
                     static_cast<qreal>(it->y()));
     }
-    for (auto it = backwardPoints.crbegin(); it != backwardPoints.crend(); ++it) {
-        path.lineTo(static_cast<qreal>(it->x()),
-                    static_cast<qreal>(it->y()));
+    for (auto backwardIt = backwardPoints.crbegin(); backwardIt != backwardPoints.crend(); ++backwardIt) {
+        path.lineTo(static_cast<qreal>(backwardIt->x()),
+                    static_cast<qreal>(backwardIt->y()));
     }
     path.closeSubpath();
     path.setFillRule(Qt::WindingFill);
