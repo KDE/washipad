@@ -21,6 +21,7 @@
   <name xml:lang="he">WashiPad</name>
   <name xml:lang="hi">वाशिपैड</name>
   <name xml:lang="hu">WashiPad</name>
+  <name xml:lang="ia">WashiPad</name>
   <name xml:lang="id">WashiPad</name>
   <name xml:lang="it">WashiPad</name>
   <name xml:lang="ka">WashiPad</name>
@@ -57,6 +58,7 @@
   <summary xml:lang="he">יישום שרבוט מצומצם</summary>
   <summary xml:lang="hi">न्यूनतमवादी रेखा टिप्पण अनुप्रयोग</summary>
   <summary xml:lang="hu">Minimalista vázlatkészítő alkalmazás</summary>
+  <summary xml:lang="ia">Application essential de notas visual (sketchnoting)</summary>
   <summary xml:lang="id">Aplikasi Pencatatan Sketsa Minimalis</summary>
   <summary xml:lang="it">Applicazione minimalista per prendere appunti</summary>
   <summary xml:lang="ka">სწრაფი ჩანაწერების გასაკეთებელი მინიმალისტური აპლიკაცია</summary>
@@ -95,6 +97,7 @@
     <p xml:lang="he">WashiPad יישום שרבוט מצומצם שמיועד לשימוש עם לוחות ציור.</p>
     <p xml:lang="hi">वाशिपैड एक न्यूनतमवादी रेखा टिप्पणी अनुप्रयोग है जो ग्राफ़िक टैबलेट के साथ उपयोग किया जाता है।</p>
     <p xml:lang="hu">A WashiPad egy minimalista vázlatkészítő alkalmazás digitális rajztáblákhoz.</p>
+    <p xml:lang="ia">Washipad es un application essential de notas visual (sketchnoting) intendite per esser usate con un tabletta graphic.</p>
     <p xml:lang="id">WashiPad adalah sebuah aplikasi pencatatan sketsa minimalis yang dimaksudkan untuk digunakan dengan tablet grafis.</p>
     <p xml:lang="it">WashiPad è un'applicazione minimalista per prendere appunti, pensata per essere utilizzata con una tavoletta grafica.</p>
     <p xml:lang="ka">WashiPad სწრაფი ჩანაწერების გასაკეთებელ აპლიკაციას წარმოადგენს, რომელიც გრაფიკული ტაბლეტებისთვისაა შექმნილი.</p>
