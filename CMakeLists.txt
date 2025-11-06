@@ -45,8 +45,8 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/src/washipad-version.h
 )
 
-ecm_set_disabled_deprecation_versions(QT 6.8.1
-    KF 6.12.0
+ecm_set_disabled_deprecation_versions(QT 6.10.0
+    KF 6.19.0
 )
 
 add_subdirectory(src)
